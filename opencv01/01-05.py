@@ -1,3 +1,4 @@
+# 마우스 이벤트 콜백(좌표)
 import cv2
 import sys
 
