@@ -1,3 +1,4 @@
+# 픽셀 값 접근 및 변경
 import cv2
 import sys
 
