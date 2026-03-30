@@ -1,3 +1,4 @@
+# OpenCV 01 기초 실습 파일
 import cv2
 import numpy as np
 import sys
