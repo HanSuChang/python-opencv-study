@@ -10,7 +10,7 @@ def mouse_callback(event, x, y, flags, param):
         print("오른쪽 버튼 더블클릭:", x, y)
     # 중복되었던 마지막 elif 문 한 줄만 제거했습니다.
 
-img = cv2.imread("lena.jpg")
+img = cv2.imread("images/lena.jpg")
 
 if img is None:
     print("이미지를 찾을 수 없습니다. 파일명과 확장자를 확인하세요.")

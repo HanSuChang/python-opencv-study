@@ -2,7 +2,7 @@ import cv2
 import sys
 
 # 이미지 불러오기 (넘파이 배열)
-img = cv2.imread("lena.jpg")
+img = cv2.imread("images/lena.jpg")
 
 if img is None :
     print("이미지를 찾을 수 없습니다.")
