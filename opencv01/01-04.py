@@ -1,3 +1,4 @@
+# 기본 도형 그리기
 import cv2
 import numpy as np
 
