@@ -3,8 +3,8 @@ import numpy as np
 import sys
 
 
-img_person = cv2.imread('22.jpg')
-img_lena = cv2.imread('lena.jpg')
+img_person = cv2.imread('images/22.jpg')
+img_lena = cv2.imread('images/lena.jpg')
 
 
 if img_person is None or img_lena is None:

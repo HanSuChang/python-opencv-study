@@ -8,8 +8,8 @@
 
 import cv2
 
-src1 = cv2.imread("lena.jpg")
-src2 = cv2.imread("lena.jpg")
+src1 = cv2.imread("images/lena.jpg")
+src2 = cv2.imread("images/lena.jpg")
 
 dst = cv2.addWeighted(src1, 0.3, src2, 0.6, 0)    # 수식: dst = src1 * alpha + src2 * beta + gamma  ->  함수: cv2.addWeighted(src1, alpha, src2, beta, gamma)
 

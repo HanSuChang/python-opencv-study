@@ -18,7 +18,7 @@
 
 import cv2
 
-src1 = cv2.imread("lena.jpg", cv2.IMREAD_GRAYSCALE)
+src1 = cv2.imread("images/lena.jpg", cv2.IMREAD_GRAYSCALE)
 
 # 임계점
 rst, src2 = cv2.threshold(src1, 160, 255, cv2.THRESH_BINARY)

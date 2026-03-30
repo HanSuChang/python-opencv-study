@@ -2,7 +2,7 @@
 
 import cv2
 
-img = cv2.imread("lena.jpg")
+img = cv2.imread("images/lena.jpg")
 b, g, r = cv2.split(img)
 
 #채널 병합

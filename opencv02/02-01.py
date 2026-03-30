@@ -8,7 +8,7 @@
 import cv2
 import numpy as np
 
-src = cv2.imread("lena.jpg")
+src = cv2.imread("images/lena.jpg")
 val = 200 # 더할 밝기 값
 
 # OpenCV 함수 이용 (추천) -> 밝아짐
