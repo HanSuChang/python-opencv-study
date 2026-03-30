@@ -1,3 +1,4 @@
+# 이미지 기본 입출력
 import cv2
 import sys
 
