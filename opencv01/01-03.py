@@ -25,5 +25,5 @@ img[10:100, 10:100] = [0, 0, 0]
 cv2.imshow('Lena Window', img) # 윈도우 창 제목, 이미지 객체
  
 #키 입력 기다리기... 키 입력 없으면 현 상태로 유지됨
-cv2.waitKey(c)
+cv2.waitKey()
 cv2.destroyAllWindows() # 모든 오픈 씨비 창 끄기
