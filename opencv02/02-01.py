@@ -1,3 +1,5 @@
+#OpenCV 01 기초 연습 및 실습
+
 #덧셈 연산과 밝기 조절...
 
 #- `cv2.add(src1, src2)`: 포화 연산 (Saturation) 적용.
