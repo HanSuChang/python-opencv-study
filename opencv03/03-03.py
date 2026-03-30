@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-src = cv2.imread('lena.jpg')
+src = cv2.imread('images/lena.jpg')
 
 
 # 샤프닝 커널 정의 (중심 픽셀 강조)

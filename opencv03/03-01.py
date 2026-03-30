@@ -16,7 +16,7 @@
 import cv2
 import numpy as np
 
-src = cv2.imread('lena.jpg')
+src = cv2.imread('images/lena.jpg')
 
 # 평균 블러 (5x5 커널)
 dst_avg = cv2.blur(src, (5, 5))
