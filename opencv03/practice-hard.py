@@ -1,4 +1,4 @@
-# practice-hard.py
+# practice-hard.py.
 # 직접 마우스 클릭으로 좌표를 지정하면, 알아서 원근법을 적용하는 방식 
 import cv2 
 import numpy as np
