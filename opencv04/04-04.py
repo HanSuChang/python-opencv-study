@@ -1,4 +1,4 @@
-# 허프 원 검출.
+# 허프 원 검출
 
 ### 원 검출 (Hough Circle Transform)
 
