@@ -1,4 +1,4 @@
-# OpenCV 03 문서 스캐너 실습
+# OpenCV 03 문서 스캐너 실습~
 
 import cv2
 import numpy as np
