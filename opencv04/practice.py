@@ -1,6 +1,17 @@
 import cv2
 import numpy as np
-import math
+
+#######중요########
+# import math
+# import math  # 주행 안정성을 위해 가장 긴 직선 하나만 추출(Filtering)할 때 필요함
+# import math  # 미사용 중: 나중에 피타고라스 정리로 선의 길이를 구할 때 활성화 (math.sqrt)
+# import math  # TODO: 이후 '가장 긴 레일'만 선별하기 위한 선 길이(sqrt) 계산 시 사용 예정
+# 나중에 칼만필터랑 같이 쓰면 됨
+
+#장점
+#1. 조향(Steering)의 안정성: "덜덜거림" 방지
+#2. 하드웨어 자원의 효율성: "가벼운 연산"
+#3. 노이즈 및 가짜 선 차단: "가장 강력한 필터"
 
 # 1. 이미지 읽기
 image = cv2.imread('images/rail.jpg')
