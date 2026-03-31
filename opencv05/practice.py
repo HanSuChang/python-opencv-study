@@ -1,3 +1,5 @@
+# 실습 과제 : 동전 개수 세기
+
 import cv2
 import numpy as np
 
