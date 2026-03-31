@@ -1,8 +1,8 @@
-## 허프 변환 (Hough Transform)
+## 허프 변환 (Hough Transform).
 
 # 에지 픽셀들을 분석하여 직선이나 원 같은 수학적 도형을 찾아내는 기법입니다.
 
-### 직선 검출 (Hough Line Transform)
+## 직선 검출 (Hough Line Transform)
 
 # 도로의 차선 등을 찾을 때 사용합니다.
 
