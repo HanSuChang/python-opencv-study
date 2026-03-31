@@ -86,12 +86,12 @@ for line in right_lines:
 
 
 
-# cv2.imshow('Original', image)
-# cv2.imshow('ROI Masked Edges', roi_edges) 
-# cv2.imshow('Rail Center Detection', result_img)
+cv2.imshow('Original', image)
+cv2.imshow('ROI Masked Edges', roi_edges) 
+cv2.imshow('Rail Center Detection', result_img)
 
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 
 
