@@ -1,3 +1,5 @@
+# OpenCV 02 크로마키 만들기 실습
+
 import cv2
 import numpy as np
 import sys
