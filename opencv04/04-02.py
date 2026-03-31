@@ -1,4 +1,4 @@
-#캐니 에지 검출(Canny Edge Detection)   중요!
+#캐니 에지 검출(Canny Edge Detection)   중요
 
 ## 캐니 에지 검출 (Canny Edge Detection)
 
