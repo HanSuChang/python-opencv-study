@@ -1,4 +1,4 @@
-#그림판 만들기
+# OpenCV 01 그림판 만들기 실습
 import cv2
 import numpy as np
 import sys
