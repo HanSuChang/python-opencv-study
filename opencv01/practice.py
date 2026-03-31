@@ -1,3 +1,4 @@
+#그림판 만들기
 import cv2
 import numpy as np
 import sys
@@ -39,3 +40,9 @@ while True:
         print("그렸던거 초기화")
 
 cv2.destroyAllWindows()
+
+
+
+
+
+
