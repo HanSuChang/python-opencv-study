@@ -4,7 +4,7 @@ import numpy as np
 src = cv2.imread('images/lena.jpg')
 
 
-# 샤프닝 커널 정의 (중심 픽셀 강조)
+# 샤프닝 커널 정의 (중심 픽셀 강조).
 sharpening_mask = np.array([[-1, -1, -1],
                             [-1,  9, -1],
                             [-1, -1, -1]])
