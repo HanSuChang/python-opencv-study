@@ -1,73 +1,52 @@
-import cv2
+# 티처블 머신 모델을 웹캠 영상에 적용해보기.
+from keras.models import load_model  # TensorFlow is required for Keras to work
+import cv2  # Install opencv-python
 import numpy as np
 
-sticker = cv2.imread('images/tigermask.png', cv2.IMREAD_UNCHANGED)
+# Disable scientific notation for clarity
+np.set_printoptions(suppress=True)
 
-if sticker is None:
-    print("에러남 다시 확인해보자")
-    exit()
+# Load the model
+model = load_model("keras_model.h5", compile=False)
 
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-cap = cv2.VideoCapture(0)
+# Load the labels
+class_names = open("labels.txt", "r").readlines()
 
+# CAMERA can be 0 or 1 based on default camera of your computer
+camera = cv2.VideoCapture(0)
 
 while True:
-    ret, frame = cap.read()
-    if not ret: break
+    # Grab the webcamera's image.
+    ret, image = camera.read()
 
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, 1.1, 5)
+    # Resize the raw image into (224-height,224-width) pixels
+    image = cv2.resize(image, (224, 224), interpolation=cv2.INTER_AREA)
 
+    # Show the image in a window
+    cv2.imshow("Webcam Image", image)
 
-    # 얼굴 기준 스티커 꽉 채우게하기 (사이즈 조절) 
-    for (x, y, w, h) in faces:
-        adj_y, adj_h = int(y - 0.2 * h), int(h * 1.6)
-        adj_x, adj_w = int(x - 0.25 * w), int(w * 1.5)
+    # Make the image a numpy array and reshape it to the models input shape.
+    image = np.asarray(image, dtype=np.float32).reshape(1, 224, 224, 3)
 
-        # w (Width): 사각형의 가로 너비, h (Height): 사각형의 세로 높이
-        # (x, y): 사각형의 왼쪽 상단 꼭짓점 좌표
-        # x: 가로축 (왼쪽에서 오른쪽으로 갈수록 증가)
-        # y: 세로축 (위에서 아래로 갈수록 증가 - 이게 수학이랑 반대)
-        # y값을 빼주면(-) 화면 위로 올라가고, 더해주면(+) 아래로 내려감
+    # Normalize the image array
+    image = (image / 127.5) - 1
 
+    # Predicts the model
+    prediction = model.predict(image) # 확률이 나와!
+    index = np.argmax(prediction)
+    class_name = class_names[index]
+    confidence_score = prediction[0][index] # 몇 퍼센트인지 확인 
 
+    # Print prediction and confidence score
+    print("Class:", class_name[2:], end="")
+    print("Confidence Score:", str(np.round(confidence_score * 100))[:-2], "%")
 
-        # 화면 경계 예외 처리 (이게 없으면 화면 끝에서 튕김)
-        adj_y = max(0, adj_y)
-        adj_x = max(0, adj_x)
-        end_y = min(frame.shape[0], adj_y + adj_h)
-        end_x = min(frame.shape[1], adj_x + adj_w)
+    # Listen to the keyboard for presses.
+    keyboard_input = cv2.waitKey(1)
 
-        real_h = end_y - adj_y
-        real_w = end_x - adj_x
+    # 27 is the ASCII for the esc key on your keyboard.
+    if keyboard_input == 27:
+        break
 
-        if real_h <= 0 or real_w <= 0: continue
-
-        # 스티커 리사이즈 (real_w, real_h 수치를 사용하세요)
-        face_sticker = cv2.resize(sticker, (real_w, real_h))
-        roi = frame[adj_y:end_y, adj_x:end_x]
-
-        # --- PNG 투명도(Alpha 채널) 합성 로직 ---
-        # 채널 분리: Blue, Green, Red, Alpha
-        b, g, r, a = cv2.split(face_sticker)
-        
-        # 알파 채널을 마스크로 사용
-        mask = a
-        mask_inv = cv2.bitwise_not(mask)
-
-        # 호랑이 얼굴 부분만 따오기 (RGB 색상 결합)
-        tiger_fg = cv2.merge((b, g, r))
-        tiger_fg = cv2.bitwise_and(tiger_fg, tiger_fg, mask=mask)
-
-        # 원본 배경(내 얼굴)에서 호랑이가 들어갈 자리 비우기
-        bg_roied = cv2.bitwise_and(roi, roi, mask=mask_inv)
-
-        # 두 영역 합체 후 원본에 삽입
-        dst = cv2.add(bg_roied, tiger_fg)
-        frame[adj_y:end_y, adj_x:end_x] = dst
-
-    cv2.imshow('타이거 필터', frame)
-    if cv2.waitKey(1) == ord('q'): break
-
-cap.release()
+camera.release()
 cv2.destroyAllWindows()
