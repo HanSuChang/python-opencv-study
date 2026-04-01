@@ -1,6 +1,6 @@
 # 움직임 포착 (Motion Detection)
 #배경 차분(Background Subtraction)이나 프레임 간 차이를 이용해 움직이는 물체를 감지합니다. CCTV 등의 기초 원리입니다.
-#- `cv2.absdiff(frame1, frame2)`: 두 프레임의 절대값 차이를 구합니다. 차이가 큰 부분이 움직인 영역입니다.
+#- `cv2.absdiff(frame1, frame2)`: 두 프레임의 절대값 차이를 구합니다. 차이가 큰 부분이 움직인 영역입니다..
 
 import cv2
 
