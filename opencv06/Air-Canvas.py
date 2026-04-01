@@ -1,4 +1,4 @@
-# 여라가지 색상으로 에어캔버스!.
+# 여라가지 색상으로 에어캔버스!...
 
 import numpy as np
 import cv2
