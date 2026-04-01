@@ -1,3 +1,5 @@
+# Haar cascade 연습
+
 # lena로 검출
 
 
